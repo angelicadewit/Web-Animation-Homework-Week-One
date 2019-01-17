@@ -9,6 +9,7 @@ let enteredColor = document.querySelector(`[name="color"]`)
 let markerWidth = document.querySelector(`[name="width"]`)
 let opacity = document.querySelector(`[name="opacity"]`)
 let coloringPageOne = document.querySelector(`.coloringpageone`)
+let coloringPageTwo = document.querySelector(`.coloringpagetwo`)
 
 console.log(opacity.value)
 
@@ -103,6 +104,11 @@ enteredColor.addEventListener(`click`, function(e){
 
 coloringPageOne.addEventListener(`click`, function(){
     image.src="dist/img/imageone.png";
+    image.onload = onImageLoaded
+})
+
+coloringPageTwo.addEventListener(`click`, function(){
+    image.src="dist/img/imagetwo.png";
     image.onload = onImageLoaded
 })
 
