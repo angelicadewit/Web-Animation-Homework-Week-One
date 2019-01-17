@@ -12,7 +12,7 @@ let opacity = document.querySelector(`[name="opacity"]`)
 console.log(opacity.value)
 
 let isDrawing = false
-// let isErasing = false
+let isErasing = false
 
 // function drawOnLoad(){
 //     let image = new Image()
@@ -49,13 +49,15 @@ function onDraw(e){
         ctx.moveTo(lastPos.x, lastPos.y);
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.lineWidth = markerWidth.value;
-        ctx.globalAlpha = `0.${opacity.value}`;
+        
         ctx.lineCap = 'round';
 
-        if (isDrawing === false){
-            ctx.strokeStyle = white; 
+        if (isErasing === true){
+            ctx.strokeStyle = "#ffffff"; 
+            ctx.globalAlpha = 1;
         } else {
             ctx.strokeStyle = enteredColor.value;   
+            ctx.globalAlpha = `0.${opacity.value}`;
         }
         
         ctx.stroke();
@@ -76,9 +78,15 @@ function onDrawEnd(e){
 }
 
 document.querySelector(`.eraser`).addEventListener(`click`, function(){
-    // isErasing = true
-    isDrawing = false
-    console.log(`hello`)
+    isErasing = true
+    // isDrawing = false
+    console.log(isDrawing)
+})
+
+enteredColor.addEventListener(`click`, function(){
+    isErasing = false
+    // isDrawing = false
+    console.log(isDrawing)
 })
 
 // enteredColor.addEventListener(`click`, onDrawStart)
