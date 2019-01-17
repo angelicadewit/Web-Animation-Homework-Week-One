@@ -45,16 +45,19 @@ function onDraw(e){
 
     // if (isDrawing){
 
-    
-
-
         ctx.beginPath();
         ctx.moveTo(lastPos.x, lastPos.y);
         ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.strokeStyle = enteredColor.value;
         ctx.lineWidth = markerWidth.value;
         ctx.globalAlpha = `0.${opacity.value}`;
         ctx.lineCap = 'round';
+
+        if (isDrawing === false){
+            ctx.strokeStyle = white; 
+        } else {
+            ctx.strokeStyle = enteredColor.value;   
+        }
+        
         ctx.stroke();
 
     
@@ -62,6 +65,7 @@ function onDraw(e){
             x: e.offsetX,
             y: e.offsetY
         }
+        
     // }
 
 }
@@ -71,11 +75,11 @@ function onDrawEnd(e){
     isDrawing = false
 }
 
-// document.querySelector(`.eraser`).addEventListener(`click`, function(){
-//     // isErasing = true
-//     // isDrawing = false
-    
-// })
+document.querySelector(`.eraser`).addEventListener(`click`, function(){
+    // isErasing = true
+    isDrawing = false
+    console.log(`hello`)
+})
 
 // enteredColor.addEventListener(`click`, onDrawStart)
 
