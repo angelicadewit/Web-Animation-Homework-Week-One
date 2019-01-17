@@ -77,16 +77,24 @@ function onDrawEnd(e){
     isDrawing = false
 }
 
-document.querySelector(`.eraser`).addEventListener(`click`, function(){
+document.querySelector(`.eraser`).addEventListener(`click`, function(e){
     isErasing = true
     // isDrawing = false
     console.log(isDrawing)
+    lastPos = {
+        x: e.offsetX,
+        y: e.offsetY
+    }
 })
 
-enteredColor.addEventListener(`click`, function(){
+enteredColor.addEventListener(`click`, function(e){
     isErasing = false
     // isDrawing = false
     console.log(isDrawing)
+    lastPos = {
+        x: e.offsetX,
+        y: e.offsetY
+    }
 })
 
 // enteredColor.addEventListener(`click`, onDrawStart)
