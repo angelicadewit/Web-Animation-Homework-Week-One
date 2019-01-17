@@ -53,7 +53,7 @@ function onDraw(e){
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.strokeStyle = enteredColor.value;
         ctx.lineWidth = markerWidth.value;
-        ctx.globalAlpha = opacity.value;
+        ctx.globalAlpha = `0.${opacity.value}`;
         ctx.lineCap = 'round';
         ctx.stroke();
 
