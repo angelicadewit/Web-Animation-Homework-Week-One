@@ -103,6 +103,15 @@ canvas {
   background-color: white;
 }
 
+.thumbnail {
+  width: 300px;
+}
+
+.thumbnail img {
+  width: 100%;
+  background: white;
+}
+
 /* 2. Content ================================= */
 
 /*# sourceMappingURL=main.css.map */

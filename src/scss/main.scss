@@ -44,7 +44,16 @@ canvas{
 
 	&.eraser{
 		background-color: white;
-	} 	
+	}
+}
+
+.thumbnail{
+	width: 300px;
+
+	img{
+		width: 100%;
+		background: white;
+	}
 }
 
 

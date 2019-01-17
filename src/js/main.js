@@ -8,11 +8,14 @@ let lastPos = {
 let enteredColor = document.querySelector(`[name="color"]`)
 let markerWidth = document.querySelector(`[name="width"]`)
 let opacity = document.querySelector(`[name="opacity"]`)
+let coloringPageOne = document.querySelector(`.coloringpageone`)
 
 console.log(opacity.value)
 
 let isDrawing = false
 let isErasing = false
+
+let image = new Image()
 
 // function drawOnLoad(){
 //     let image = new Image()
@@ -46,6 +49,7 @@ function onDraw(e){
     // if (isDrawing){
 
         ctx.beginPath();
+        
         ctx.moveTo(lastPos.x, lastPos.y);
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.lineWidth = markerWidth.value;
@@ -96,6 +100,16 @@ enteredColor.addEventListener(`click`, function(e){
         y: e.offsetY
     }
 })
+
+coloringPageOne.addEventListener(`click`, function(){
+    image.src="dist/img/imageone.png";
+    image.onload = onImageLoaded
+})
+
+function onImageLoaded(){
+    ctx.drawImage(this, 0, 0, image.width, image.height,
+                        0, 0, canvas.width, canvas.height);
+}
 
 // enteredColor.addEventListener(`click`, onDrawStart)
 
