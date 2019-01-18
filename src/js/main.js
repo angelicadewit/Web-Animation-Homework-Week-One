@@ -50,6 +50,8 @@ function onDraw(e){
 
     // if (isDrawing){
 
+        ctx.globalCompositeOperation = 'multiply'
+
         ctx.beginPath();
         
         ctx.moveTo(lastPos.x, lastPos.y);
@@ -74,6 +76,9 @@ function onDraw(e){
             y: e.offsetY
         }
         
+        ctx.globalCompositeOperation = 'destination-in'
+        
+        ctx.globalCompositeOperation = "source-over"
     // }
 
 }
